@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,8 +18,9 @@ font-family:'Baloo 2',cursive;
 }
 
 body{
-background:linear-gradient(90deg,#ffe4f0,#fff3cf);
-padding:20px;
+background:linear-gradient(90deg,#ffe4f0,#fff4c9);
+padding:15px;
+overflow-x:hidden;
 }
 
 .container{
@@ -31,303 +30,215 @@ margin:auto;
 
 .topo{
 text-align:center;
-font-size:40px;
+font-size:34px;
 margin-bottom:15px;
 }
 
 .hero{
-
 background:white;
-
 border-radius:40px;
-
-padding:30px;
-
-border:5px solid #ffc2df;
-
+padding:25px;
+border:5px solid #ffc3df;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
-
 position:relative;
-
 overflow:hidden;
-
 }
 
-.flor1{
+.decoracao-esq{
 position:absolute;
-top:20px;
-left:20px;
-font-size:40px;
+left:15px;
+top:15px;
+font-size:35px;
 }
 
-.borboleta{
+.decoracao-dir{
 position:absolute;
-top:20px;
-right:20px;
-font-size:40px;
+right:15px;
+top:15px;
+font-size:35px;
 }
 
 .girafa{
 position:absolute;
-right:0;
-bottom:0;
-font-size:130px;
-opacity:.9;
+right:-10px;
+bottom:-10px;
+font-size:120px;
 }
 
 .foto-principal{
-
-width:280px;
-
-height:280px;
-
-border-radius:50%;
-
-border:10px solid #ff8cc6;
-
-object-fit:cover;
-
+width:260px;
+height:260px;
 display:block;
-
 margin:auto;
-
+border-radius:50%;
+border:10px solid #ff8dc8;
+object-fit:cover;
 }
 
 .nome{
-
 text-align:center;
-
-font-size:70px;
-
+font-size:65px;
 font-weight:800;
-
-color:#ff4fa0;
-
-line-height:1.05;
-
+line-height:1;
+color:#ff4ea0;
 margin-top:20px;
-
 }
 
 .subtitulo{
-
 text-align:center;
-
 font-size:24px;
-
-color:#9b6a55;
-
-margin-top:10px;
-
+color:#9a6b57;
+margin-top:12px;
 }
 
 .cards{
-
 display:flex;
-
 justify-content:center;
-
 gap:20px;
-
-margin-top:30px;
-
 flex-wrap:wrap;
-
+margin-top:30px;
 }
 
 .card{
-
 width:180px;
-
-background:#fff0ae;
-
-border:3px dashed #f0b500;
-
+background:#fff0af;
+border:3px dashed #e7b100;
 border-radius:25px;
-
 padding:20px;
-
 text-align:center;
-
 }
 
 .numero{
-
 font-size:45px;
-
 font-weight:bold;
-
-color:#5a3414;
-
+color:#5b3515;
 }
 
 .label{
-
 font-size:20px;
-
-color:#5a3414;
-
+color:#5b3515;
 }
 
 .secoes{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:25px;
-
 margin-top:25px;
-
 }
 
 .box{
-
 background:white;
-
-border:4px solid #bfe4b9;
-
 border-radius:35px;
-
 padding:25px;
-
+border:4px solid #bfe3ba;
 }
 
 .titulo{
-
 font-size:42px;
-
-color:#188d49;
-
+color:#198d4a;
 margin-bottom:15px;
-
 }
 
 .descricao{
-
 font-size:20px;
-
-color:#86634f;
-
-margin-bottom:15px;
-
+color:#886552;
+margin-bottom:20px;
 }
 
 input,
 textarea{
-
 width:100%;
-
 padding:18px;
-
 border-radius:20px;
-
-border:3px solid #f0c247;
-
-background:#fff7d4;
-
-margin-bottom:15px;
-
+border:3px solid #efc148;
+background:#fff7d8;
 font-size:18px;
-
+margin-bottom:15px;
 }
 
 textarea{
-
 height:180px;
-
 resize:none;
+}
 
+.upload{
+background:#fff7d8;
+border:3px dashed #efc148;
+border-radius:20px;
+padding:15px;
+margin-bottom:15px;
 }
 
 .botao{
-
 width:100%;
-
 padding:18px;
-
 border:none;
-
 border-radius:50px;
-
-background:#ff4fa0;
-
+background:#ff4ea0;
 color:white;
-
 font-size:24px;
-
 font-weight:bold;
-
 cursor:pointer;
+}
 
+.botao:hover{
+opacity:.9;
 }
 
 .video-box{
-
 height:260px;
-
-background:#fff6fb;
-
-border:3px dashed #ff7cbc;
-
 border-radius:25px;
-
+background:#fff7fc;
+border:3px dashed #ff7dbc;
 display:flex;
-
-align-items:center;
-
 justify-content:center;
-
+align-items:center;
 flex-direction:column;
-
 text-align:center;
-
 }
 
-.video-icone{
-
+.video-icon{
 font-size:80px;
-
+margin-bottom:10px;
 }
 
 .mural{
-
 margin-top:25px;
-
 }
 
 .recado-vazio{
-
-background:#fff8d9;
-
-border:2px dashed #f0c247;
-
+background:#fff8d8;
+border:2px dashed #efc148;
 border-radius:25px;
-
-padding:35px;
-
+padding:30px;
 text-align:center;
+}
 
+.recado-card{
+background:#fff8d8;
+border-radius:25px;
+padding:18px;
+margin-top:15px;
+border:2px solid #efc148;
+}
+
+.recado-card h3{
+color:#ff4ea0;
+margin-bottom:8px;
 }
 
 .rodape{
-
 text-align:center;
-
-margin-top:30px;
-
+margin-top:35px;
 font-size:22px;
-
-color:#ff4fa0;
-
+color:#ff4ea0;
 font-weight:bold;
-
 }
 
 @media(max-width:900px){
 
 .nome{
-font-size:50px;
+font-size:45px;
 }
 
 .foto-principal{
@@ -342,7 +253,6 @@ grid-template-columns:1fr;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -350,29 +260,34 @@ grid-template-columns:1fr;
 <div class="container">
 
 <div class="topo">
-🌴 🦒 🌺 🦓 🌴
+🌴 🦒 🌸 🦋 🌺 🦓 🌴
 </div>
 
 <div class="hero">
 
-<div class="flor1">🌸</div>
-
-<div class="borboleta">🦋</div>
-
+<div class="decoracao-esq">🌸🦋</div>
+<div class="decoracao-dir">🦋🌸</div>
 <div class="girafa">🦒</div>
 
 <img
 class="foto-principal"
-src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200"
+src="
+    https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200"
 />
 
 <h1 class="nome">
-Cápsula do Tempo<br>
-da Princesa Millena
+Millena<br>
+Danemberg
 </h1>
 
 <div class="subtitulo">
-💖 Um lugar para guardar amor, mensagens e lembranças para o futuro 💖
+💖 Aventureira • Sonhadora • Carinhosa 💖
+</div>
+
+<div class="subtitulo" style="font-size:20px;margin-top:15px;">
+Bem-vindo à Cápsula do Tempo da Princesa Millena.
+Aqui guardamos mensagens, vídeos, fotos e lembranças especiais
+para que ela descubra todo esse amor ao longo da vida.
 </div>
 
 <div class="cards">
@@ -388,7 +303,7 @@ da Princesa Millena
 </div>
 
 <div class="card">
-<div class="numero">18/09</div>
+<div class="numero">18/09/2019</div>
 <div class="label">👑 Princesa</div>
 </div>
 
@@ -401,54 +316,44 @@ da Princesa Millena
 <div class="box">
 
 <h2 class="titulo">
-🦒 Deixe um recado 🌸
+💌 Deixe um Recado
 </h2>
 
 <p class="descricao">
-Escreva uma mensagem cheia de carinho para a Millena guardar para sempre.
+Escreva uma mensagem especial para a Millena guardar para sempre.
 </p>
 
 <input
 type="text"
-placeholder="Seu nome ✨"
+placeholder="Seu nome"
 />
 
 <textarea
-placeholder="Escreva aqui sua mensagem para a Millena 💖">
+placeholder="Escreva aqui sua mensagem para a Millena">
 </textarea>
 
+<div class="upload">
+📸 Adicionar foto (em breve)
+</div>
+
 <button class="botao">
-💌 Enviar Recado
+Enviar Mensagem 💖
 </button>
 
 <div class="mural">
 
-<h2
-class="titulo"
-style="margin-top:25px;"
->
+<h2 class="titulo" style="margin-top:25px;">
 🌸 Mural de Recados
 </h2>
 
 <div class="recado-vazio">
 
-<h3
-style="
-color:#ff4fa0;
-font-size:30px;
-margin-bottom:10px;
-"
->
-💌 Nenhum recado ainda
+<h3 style="color:#ff4ea0;">
+Nenhum recado ainda 💌
 </h3>
 
-<p
-style="
-color:#8b6b59;
-font-size:18px;
-"
->
-Seja a primeira pessoa a deixar uma mensagem especial para a Princesa Millena.
+<p>
+Seja a primeira pessoa a deixar uma mensagem para a Millena.
 </p>
 
 </div>
@@ -460,66 +365,43 @@ Seja a primeira pessoa a deixar uma mensagem especial para a Princesa Millena.
 <div class="box">
 
 <h2 class="titulo">
-🎥 Envie um vídeo 🌸
+🎥 Vídeos para a Millena
 </h2>
 
 <p class="descricao">
-Grave uma lembrança especial para que a Millena possa assistir no futuro.
+Grave uma lembrança especial para ela assistir no futuro.
 </p>
 
 <div class="video-box">
 
-<div class="video-icone">
+<div class="video-icon">
 📹
 </div>
 
-<h3
-style="
-color:#ff4fa0;
-font-size:30px;
-"
->
-Gravar Vídeo
+<h3 style="color:#ff4ea0;">
+Enviar Vídeo
 </h3>
 
-<p
-style="
-color:#777;
-font-size:18px;
-max-width:300px;
-"
->
-Toque aqui para enviar um vídeo cheio de amor para a Millena.
+<p>
+Funcionalidade será conectada ao Firebase.
 </p>
 
 </div>
 
-<h2
-class="titulo"
-style="margin-top:25px;"
->
+<div class="mural">
+
+<h2 class="titulo" style="margin-top:25px;">
 🎬 Vídeos Recebidos
 </h2>
 
 <div class="recado-vazio">
 
-<h3
-style="
-color:#ff4fa0;
-font-size:28px;
-margin-bottom:10px;
-"
->
-🎥 Nenhum vídeo enviado
+<h3 style="color:#ff4ea0;">
+Nenhum vídeo enviado
 </h3>
 
-<p
-style="
-color:#8b6b59;
-font-size:18px;
-"
->
-Os vídeos enviados pelos amigos e familiares aparecerão aqui.
+<p>
+Os vídeos enviados pelos familiares aparecerão aqui.
 </p>
 
 </div>
@@ -527,91 +409,14 @@ Os vídeos enviados pelos amigos e familiares aparecerão aqui.
 </div>
 
 </div>
-<section class="mensagens-recebidas">
-    <h2>💌 Mensagens recebidas</h2>
 
-    <div id="listaMensagens"></div>
+</div>
 
-    <div id="semMensagens" class="vazio">
-        🌸 Nenhuma mensagem ainda.<br>
-        Seja a primeira pessoa a deixar um recado para a Millena!
-    </div>
-</section>
+<div class="rodape">
+🌸 Feito com amor para a Princesa Millena 🌸
+</div>
 
-<footer>
-    💖 Feito com amor para a Cápsula do Tempo da Princesa Millena 💖
-</footer>
-
-<script>
-const formulario = document.getElementById("formulario");
-const listaMensagens = document.getElementById("listaMensagens");
-const semMensagens = document.getElementById("semMensagens");
-const contador = document.getElementById("contador");
-
-let mensagens = JSON.parse(localStorage.getItem("mensagensMillena")) || [];
-
-function atualizarMensagens() {
-
-    listaMensagens.innerHTML = "";
-
-    contador.textContent = mensagens.length;
-
-    if(mensagens.length === 0){
-        semMensagens.style.display = "block";
-        return;
-    }
-
-    semMensagens.style.display = "none";
-
-    mensagens.reverse().forEach(item => {
-
-        const card = document.createElement("div");
-        card.className = "mensagem-card";
-
-        card.innerHTML = `
-            <h3>🌸 ${item.nome}</h3>
-            <p>${item.mensagem}</p>
-            <small>${item.data}</small>
-        `;
-
-        listaMensagens.appendChild(card);
-    });
-
-    mensagens.reverse();
-}
-
-formulario.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    const nome = document.getElementById("nome").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
-
-    if(!nome || !mensagem){
-        alert("Preencha todos os campos.");
-        return;
-    }
-
-    mensagens.push({
-        nome,
-        mensagem,
-        data: new Date().toLocaleDateString("pt-BR")
-    });
-
-    localStorage.setItem(
-        "mensagensMillena",
-        JSON.stringify(mensagens)
-    );
-
-    formulario.reset();
-
-    atualizarMensagens();
-
-    alert("💖 Mensagem enviada para a cápsula do tempo!");
-});
-
-atualizarMensagens();
-</script>
+</div>
 
 </body>
 </html>
