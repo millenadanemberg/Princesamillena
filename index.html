@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princesa Millena</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f7f7f7;
+    text-align:center;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#e91e63;
+}
+
+input{
+    width:95%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#e91e63;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+#resultado{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Calculadora Numerológica</h1>
+
+<input type="text" id="nome" placeholder="Nome completo">
+
+<input type="date" id="data">
+
+<button onclick="calcular()">
+Calcular
+</button>
+
+<div id="resultado"></div>
+</div>
+
+<script>
+function reduzir(numero){
+  while(numero > 9 && numero != 11 && numero != 22){
+    numero = numero.toString()
+      .split('')
+      .reduce((a,b)=>a+parseInt(b),0);
+  }
+  return numero;
+}
+
+function calcular(){
+  let data = document.getElementById("data").value;
+
+  if(!data){
+    alert("Informe a data de nascimento");
+    return;
+  }
+
+  let numeros = data.replaceAll("-","");
+  let soma = numeros.split("")
+    .reduce((a,b)=>a+parseInt(b),0);
+
+  let destino = reduzir(soma);
+
+  document.getElementById("resultado").innerHTML =
+  "Seu Número de Destino é: " + destino;
+}
+</script>
+
+</body>
+</html>
