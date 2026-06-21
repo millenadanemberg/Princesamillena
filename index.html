@@ -3,52 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Princesa Millena</title>
+
+<title>Cápsula do Tempo da Princesa Millena</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#f7f7f7;
-    text-align:center;
-    margin:0;
-    padding:20px;
+background:linear-gradient(180deg,#ffe4ef,#fff5f8);
+padding:20px;
+color:#444;
 }
 
 .container{
-    max-width:500px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+margin-bottom:20px;
 }
 
 h1{
-    color:#e91e63;
+color:#ff4f95;
+text-align:center;
+font-size:2.4rem;
+margin-bottom:10px;
 }
 
-input{
-    width:95%;
-    padding:12px;
-    margin:8px 0;
-    border:1px solid #ddd;
-    border-radius:8px;
+h2{
+color:#ff4f95;
+margin-bottom:15px;
+}
+
+.hero{
+text-align:center;
+}
+
+.hero img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:8px solid #ffd1e3;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.6;
+}
+
+.data{
+margin-top:10px;
+font-weight:bold;
+color:#777;
+}
+
+textarea,input{
+width:100%;
+padding:15px;
+border:2px solid #ffd1e3;
+border-radius:15px;
+margin-top:10px;
+margin-bottom:10px;
+font-size:16px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    background:#e91e63;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
+width:100%;
+padding:15px;
+background:#ff4f95;
+border:none;
+color:white;
+font-size:18px;
+border-radius:15px;
+cursor:pointer;
 }
 
-#resultado{
-    margin-top:20px;
-    font-size:18px;
-    font-weight:bold;
+button:hover{
+opacity:.9;
+}
+
+.recado{
+background:#fff0f6;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#777;
 }
 </style>
 </head>
@@ -56,46 +112,114 @@ button{
 <body>
 
 <div class="container">
-<h1>Calculadora Numerológica</h1>
 
-<input type="text" id="nome" placeholder="Nome completo">
+<div class="card hero">
 
-<input type="date" id="data">
+<img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600" id="fotoMillena">
 
-<button onclick="calcular()">
-Calcular
+<h1>🦒🌸 Cápsula do Tempo da Princesa Millena 🌸🦒</h1>
+
+<p>
+Bem-vindo à Cápsula do Tempo da Princesa Millena. 💖
+Aqui guardamos mensagens, vídeos, lembranças e muito amor
+para que ela possa descobrir tudo isso ao longo da vida.
+Cada palavra deixada aqui será um pedacinho de carinho
+esperando por ela no futuro.
+</p>
+
+<div class="data">
+Nascimento: 18/09/2019 👑
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>💌 Deixe sua mensagem para Millena</h2>
+
+<input id="nome" placeholder="Seu nome">
+
+<textarea id="mensagem" rows="5"
+placeholder="Escreva uma mensagem para a Millena ler no futuro..."></textarea>
+
+<button onclick="salvarMensagem()">
+Guardar na Cápsula ✨
 </button>
 
-<div id="resultado"></div>
+</div>
+
+<div class="card">
+
+<h2>📜 Mensagens Guardadas</h2>
+
+<div id="mensagens"></div>
+
+</div>
+
+<footer>
+Feito com amor para Millena Danemberg 💖
+</footer>
+
 </div>
 
 <script>
-function reduzir(numero){
-  while(numero > 9 && numero != 11 && numero != 22){
-    numero = numero.toString()
-      .split('')
-      .reduce((a,b)=>a+parseInt(b),0);
-  }
-  return numero;
+
+function carregarMensagens(){
+const mensagens =
+JSON.parse(localStorage.getItem("millenaMensagens")) || [];
+
+const lista = document.getElementById("mensagens");
+
+lista.innerHTML="";
+
+mensagens.reverse().forEach(item=>{
+
+lista.innerHTML += `
+<div class="recado">
+<strong>${item.nome}</strong><br><br>
+${item.mensagem}
+</div>
+`;
+
+});
 }
 
-function calcular(){
-  let data = document.getElementById("data").value;
+function salvarMensagem(){
 
-  if(!data){
-    alert("Informe a data de nascimento");
-    return;
-  }
+const nome =
+document.getElementById("nome").value;
 
-  let numeros = data.replaceAll("-","");
-  let soma = numeros.split("")
-    .reduce((a,b)=>a+parseInt(b),0);
+const mensagem =
+document.getElementById("mensagem").value;
 
-  let destino = reduzir(soma);
-
-  document.getElementById("resultado").innerHTML =
-  "Seu Número de Destino é: " + destino;
+if(!nome || !mensagem){
+alert("Preencha todos os campos.");
+return;
 }
+
+const mensagens =
+JSON.parse(localStorage.getItem("millenaMensagens")) || [];
+
+mensagens.push({
+nome,
+mensagem
+});
+
+localStorage.setItem(
+"millenaMensagens",
+JSON.stringify(mensagens)
+);
+
+document.getElementById("nome").value="";
+document.getElementById("mensagem").value="";
+
+carregarMensagens();
+
+alert("Mensagem guardada na cápsula! 💖");
+}
+
+carregarMensagens();
+
 </script>
 
 </body>
