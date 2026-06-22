@@ -412,6 +412,32 @@ Os vídeos enviados pelos familiares aparecerão aqui.
 </div>
 
 </div>
+<!-- Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAtWQvfPPvbixVckyE4PcAJAj5xIEpFnAc",
+  authDomain: "princesamillena.firebaseapp.com",
+  databaseURL: "https://princesamillena-default-rtdb.firebaseio.com",
+  projectId: "princesamillena",
+  storageBucket: "princesamillena.firebasestorage.app",
+  messagingSenderId: "1091521650845",
+  appId: "1:1091521650845:web:ae38056983473f48dcb474"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// função para salvar recado
+window.enviarRecado = function(nome, mensagem){
+  push(ref(db, "recados"), {
+    nome: nome,
+    mensagem: mensagem,
+    data: Date.now()
+  });
+};
+</script>
 </body>
 </html>
