@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princesa Millena - Safari Rosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Poppins,sans-serif;background:linear-gradient(180deg,#fff5fa,#ffe7f1)}
+.hero{padding:40px 20px;text-align:center;position:relative;overflow:hidden}
+.nome{font-family:'Great Vibes',cursive;font-size:90px;color:#d96ca6;margin:10px 0}
+.topo{position:relative;width:360px;height:360px;margin:auto}
+.foto{width:260px;height:260px;object-fit:cover;border-radius:50%;position:absolute;left:50px;top:50px;border:10px solid #fff;box-shadow:0 0 25px rgba(0,0,0,.12)}
+.an{position:absolute;width:120px}
+.a1{left:0;top:0}.a2{right:0;top:0}.a3{left:0;bottom:0}.a4{right:0;bottom:0}
+.box{max-width:1100px;margin:20px auto;background:#fff;border-radius:30px;padding:25px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+.t{font-family:'Great Vibes',cursive;font-size:58px;color:#d96ca6}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card img{width:100%;height:280px;object-fit:cover;border-radius:18px}
+.card{text-align:center;background:#fff8fc;padding:10px;border-radius:20px}
+input,textarea{width:100%;padding:14px;border-radius:15px;border:2px solid #f3c7d9;box-sizing:border-box;margin:8px 0}
+button{background:#d96ca6;color:#fff;border:none;padding:14px 20px;border-radius:20px;font-size:18px}
+.msg{background:#fff5fa;padding:12px;border-radius:12px;margin-top:10px}
+.count{font-size:36px;color:#d96ca6;font-weight:bold}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="topo">
+<img class="an a1" src="70b6ce62-aa33-414b-a55f-8006a32cf74b.jpeg">
+<img class="an a2" src="98b2061c-d39e-4845-a578-bcd768074601.jpeg">
+<img class="an a3" src="a5f5b8e3-9a4d-45df-8c80-7e9524889fcf.jpeg">
+<img class="an a4" src="c172cf49-fb31-42a6-85c2-c513634a983e.jpeg">
+<img class="foto" src="IMG_20260610_161549257~2.jpg">
+</div>
+<div class="nome">Millena</div>
+<p>👑 Safari Rosa da Princesa Millena 👑</p>
+</section>
+
+<div class="box">
+<div class="t">Mensagens Recebidas</div>
+<div class="count" id="count">0</div>
+<div id="mural"></div>
+</div>
+
+<div class="box">
+<div class="t">Deixe um Recado</div>
+<input id="nome" placeholder="Seu nome">
+<textarea id="mensagem" rows="5" placeholder="Sua mensagem para a Millena"></textarea>
+<button onclick="enviar()">Enviar Recado 💌</button>
+</div>
+
+<div class="box">
+<div class="t">Linha do Tempo</div>
+<div class="timeline">
+<div class="card"><img src="Screenshot_20260621-232348_Google~2.png"><h3>2019</h3></div>
+<div class="card"><img src="Screenshot_20260621-232354_Google~2.png"><h3>2020</h3></div>
+<div class="card"><img src="Screenshot_20260621-232358_Interface do sistema~2.png"><h3>2021</h3></div>
+<div class="card"><img src="Screenshot_20260621-232404_Google~2.png"><h3>2022</h3></div>
+<div class="card"><img src="Screenshot_20260621-232409_Google~2.png"><h3>2023</h3></div>
+<div class="card"><img src="Screenshot_20260621-232413_Google~2.png"><h3>2024</h3></div>
+<div class="card"><img src="Screenshot_20260621-232417_Google~2.png"><h3>2025</h3></div>
+<div class="card"><img src="Screenshot_20260621-232421_Google~2.png"><h3>2026</h3></div>
+</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig={apiKey:"AIzaSyAtWQvfPPvbixVckyE4PcAJAj5xIEpFnAc",authDomain:"princesamillena.firebaseapp.com",databaseURL:"https://princesamillena-default-rtdb.firebaseio.com",projectId:"princesamillena",storageBucket:"princesamillena.firebasestorage.app",messagingSenderId:"1091521650845",appId:"1:1091521650845:web:ae38056983473f48dcb474"};
+const app=initializeApp(firebaseConfig);
+const db=getDatabase(app);
+
+window.enviar=()=>{
+ const n=document.getElementById('nome').value.trim();
+ const m=document.getElementById('mensagem').value.trim();
+ if(!n||!m) return alert('Preencha os campos');
+ push(ref(db,'recados'),{nome:n,msg:m});
+ document.getElementById('nome').value='';
+ document.getElementById('mensagem').value='';
+};
+
+onValue(ref(db,'recados'),snap=>{
+ let mural=document.getElementById('mural');
+ mural.innerHTML='';
+ let total=0;
+ snap.forEach(c=>{
+   total++;
+   const d=c.val();
+   mural.innerHTML=`<div class="msg"><strong>${d.nome}</strong><br>${d.msg}</div>`+mural.innerHTML;
+ });
+ document.getElementById('count').textContent=total;
+});
+</script>
+</body></html>
