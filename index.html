@@ -317,23 +317,14 @@ para que ela descubra todo esse amor ao longo da vida.
 <p class="descricao">
 Escreva uma mensagem especial para a Millena guardar para sempre.
 </p>
+<input id="nome" type="text" placeholder="Seu nome">
 
-<input
-type="text"
-placeholder="Seu nome"
-/>
+<textarea id="mensagem" placeholder="Escreva aqui sua mensagem para a Millena"></textarea>
 
-<textarea
-placeholder="Escreva aqui sua mensagem para a Millena">
-</textarea>
-
-<div class="upload">
-📸 Adicionar foto (em breve)
-</div>
-
-<button class="botao">
+<button class="botao" onclick="enviarRecado(document.getElementById('nome').value, document.getElementById('mensagem').value)">
 Enviar Mensagem 💖
 </button>
+
 
 <div class="mural">
 
